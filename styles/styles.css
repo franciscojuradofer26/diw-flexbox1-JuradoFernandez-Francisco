@@ -1,0 +1,63 @@
+.cabecera, .pie {
+    background-color: #19385B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecera__marca {
+    font-weight: bold;
+    color: aliceblue;
+    margin-left: 4rem;
+    font-family: sans-serif;
+}
+
+.menu__lista {
+    display: flex;
+    justify-content:space-around;
+    list-style: none;
+}
+
+.menu__lista>li>a {
+    color: aliceblue;
+    text-decoration: none;
+    font-family: sans-serif;
+    padding: 0 1.25rem;
+}
+
+.menu__lista > li > a:hover {
+    text-decoration: underline;
+}
+
+.menu__lista > li > a[aria-current="page"] {
+    font-weight: bold;
+    border-bottom: 2px solid yellow;
+}
+
+main {
+    height: 500px;
+}
+
+main>h1{
+    text-align: center;
+    color: #19385B;
+    font-family: sans-serif;
+}
+
+.pie__texto{
+    color: aliceblue;
+    padding-left: 50px;
+}
+
+.pie__lista {
+    display: flex;
+    justify-content:space-around;
+    list-style: none;
+}
+
+.pie__lista>li>a {
+    color: aliceblue;
+    text-decoration: none;
+    font-family: sans-serif;
+    padding: 0 1.25rem;
+}
