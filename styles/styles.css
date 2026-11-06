@@ -150,7 +150,8 @@ main>h1{
 }
 
 .opciones__lista {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     gap: 2rem;
 }
 
@@ -163,6 +164,29 @@ main>h1{
     flex-direction: column;
     gap: 0.25rem;
     margin-bottom: 1rem;
+}
+
+.campo--ciclo, .campo--nota {
+    width: 250px;
+}
+
+.campo--direccion {
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr;
+    gap: 1rem;
+}
+
+.campo--curso .opciones__lista{
+    grid-template-columns: 1fr;
+}
+
+.campo--idiomas .opciones__lista {
+    grid-template-columns: 1fr 1fr; 
+}
+
+.campo--duracion>.opciones__lista {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10rem;
 }
 
 @media (min-width: 40rem) {
@@ -182,6 +206,7 @@ main>h1{
     height: 2rem;
     border-radius: 4px;
     border: 2px solid gray;
+    resize: vertical;
 }
 
 .campo__ayuda {
@@ -200,16 +225,25 @@ main>h1{
 .boton--borrar {
     border: solid 1px black;
     background-color: #ffffff;
+    grid-column-start: 1;
 }
 
 .boton--secundario {
     background-color: #ffffff;
     border: solid 2px #19385B;
     color: #19385B;
+    grid-column-start: 2;
 }
 
 .boton--principal {
     background-color: #19385B;
     border: solid 2px #19385B;
     color: #ffffff;
+    grid-column-start: 3;
+}
+
+.botonera {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
 }
