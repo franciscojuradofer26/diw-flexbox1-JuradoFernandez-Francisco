@@ -6,8 +6,23 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-primario: #12355b;
+    --color-primario-claro: #1f5088;
+    --color-botones-claro: #E3EBF5;
+    --color-botones-oscuro: #0B2340;
+    --sombreado-caja: rgba(18, 53, 91, 0.20); 
+    --sombreado-texto: rgba(0, 0, 0, 0.45);
+    --color-fondo-blanco: #FFFFFF;
+    --color-texto-blanco: #FFFFFF;
+    --color-subrayado: yellow;
+    --color-bordes: lightgray;
+    --color-borde-negro: black;
+}
+
 .cabecera, .pie {
-    background-color: #19385B;
+    background-color: (var(--color-primario));
+    background-image: linear-gradient(to right, var(--color-primario), var(--color-primario-claro));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,9 +30,10 @@
 
 .cabecera__marca {
     font-weight: bold;
-    color: aliceblue;
+    color: var(--color-texto-blanco);
     margin-left: 4rem;
     font-family: sans-serif;
+    text-shadow: 0 0.0625rem 0.125rem var(--color-sombra-texto)
 }
 
 .menu__lista {
@@ -27,7 +43,7 @@
 }
 
 .menu__lista>li>a {
-    color: aliceblue;
+    color: var(--color-texto-blanco);
     text-decoration: none;
     font-family: sans-serif;
     padding: 0 1.25rem;
@@ -39,17 +55,17 @@
 
 .menu__lista > li > a[aria-current="page"] {
     font-weight: bold;
-    border-bottom: 2px solid yellow;
+    border-bottom: 2px solid var(--color-subrayado);
 }
 
 main>h1{
     text-align: center;
-    color: #19385B;
+    color: var(--color-primario);
     font-family: sans-serif;
 }
 
 .pie__texto{
-    color: aliceblue;
+    color: var(--color-texto-blanco);
     padding-left: 50px;
 }
 
@@ -60,7 +76,7 @@ main>h1{
 }
 
 .pie__lista>li>a {
-    color: aliceblue;
+    color: var(--color-texto-blanco);
     text-decoration: none;
     font-family: sans-serif;
     padding: 0 1.25rem;
@@ -89,13 +105,14 @@ main>h1{
 }
 
 .ayuda {
-    background-color: #ffffff;
-    border: 2px solid lightgrey;
+    background-color: var(--color-fondo-blanco);
+    border: 2px solid var(--color-bordes);
     border-radius: 8px;
+    box-shadow: 0 0.125rem 0.5rem var(--sombreado-caja);
 }
 
 .ayuda__titulo {
-    color:#19385B;
+    color: var(--color-primario);
     font-size: 1.25rem;
     margin: 1rem;
 }
@@ -113,11 +130,16 @@ main>h1{
 }
 
 .ayuda__numero {
-    background-color:#19385B;
-    color:white;
+    background-color: var(--color-primario);
+    color: var(--color-texto-blanco);
     font-weight: bold;
     border-radius: 50%;
     padding: 0.5rem 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+.ayuda__paso:hover>.ayuda__numero {
+    transform: scale(1.1)
 }
 
 .ayuda__texto {
@@ -126,11 +148,12 @@ main>h1{
 }
 
 .grupo {
-    background-color: #ffffff;
-    border: 2px solid lightgray;
+    background-color: var(--color-fondo-blanco);
+    border: 2px solid var(--color-bordes);
     border-radius: 8px;
     margin-bottom: 2rem;
     padding-left: 1.25rem;
+    box-shadow: 0 0.125rem 0.5rem var(--sombreado-caja);
 }
 
 .grupo__campos {
@@ -139,7 +162,7 @@ main>h1{
 }
 
 .grupo>legend {
-    color:#19385B;
+    color: var(--color-primario);
     font-weight:bold;
     font-size: 1.25rem;
     margin: 0 1.1rem;
@@ -205,13 +228,13 @@ main>h1{
 .campo__control {
     height: 2rem;
     border-radius: 4px;
-    border: 2px solid gray;
+    border: 2px solid var(--color-bordes);
     resize: vertical;
 }
 
 .campo__ayuda {
     font-size: 0.8rem;
-    color: lightgray;
+    color: var(--color-bordes);
 }
 
 .boton {
@@ -223,23 +246,36 @@ main>h1{
 }
 
 .boton--borrar {
-    border: solid 1px black;
-    background-color: #ffffff;
+    border: solid 1px var(--color-borde-negro);
+    background-color: var(--color-fondo-blanco);
     grid-column-start: 1;
 }
 
 .boton--secundario {
-    background-color: #ffffff;
-    border: solid 2px #19385B;
-    color: #19385B;
+    background-color: var(--color-fondo-blanco);
+    border: solid 2px var(--color-primario);
+    color: var(--color-primario);
     grid-column-start: 2;
 }
 
 .boton--principal {
-    background-color: #19385B;
-    border: solid 2px #19385B;
-    color: #ffffff;
+    background-color: var(--color-primario);
+    border: solid 2px var(--color-primario);
+    color: var(--color-texto-blanco);
     grid-column-start: 3;
+    box-shadow: 0 0.125rem 0.25rem var(--sombreado-texto);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boton--principal:hover,
+.boton--principal:focus-visible{
+    background-color: var(--color-botones-oscuro);
+    transform: translateY(-2px)
+}
+
+.boton--principal:active{
+    box-shadow: 0 0 0 transparent;
+    transform: translateY(0px);
 }
 
 .botonera {
